@@ -1,0 +1,64 @@
+﻿CREATE TABLE [dbo].[Authors](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[FirstName] [nvarchar](450) NULL,
+	[LastName] [nvarchar](450) NULL,
+ CONSTRAINT [PK_Authors] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+CREATE TABLE [dbo].[Books](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Title] [nvarchar](450) NULL,
+	[Category] [nvarchar](max) NULL,
+	[AuthorId] [int] NOT NULL,
+ CONSTRAINT [PK_Books] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+
+
+------------------------------------------------------------------------
+
+CREATE PROCEDURE [dbo].[GetAuthor]
+	@Id int
+AS
+BEGIN
+	SELECT [Id]
+		  ,[FirstName]
+		  ,[LastName]
+	  FROM [dbo].[Authors]
+	WHERE Id = @Id;
+
+	SELECT 
+		Id,
+		Title,
+		Category,
+		AuthorId
+	FROM [dbo].[Books] 
+	WHERE AuthorId = @Id;
+
+END
+
+------------------------------------------------------------------------
+
+INSERT INTO Authors(FirstName, LastName) VALUES ('Cardinal','Tom B. Erichsen');
+INSERT INTO Authors(FirstName, LastName) VALUES ('Meredith','Alonso');
+INSERT INTO Authors(FirstName, LastName) VALUES ('Robert','T. Kiyosaki');
+
+INSERT INTO Books(Title, Category, AuthorId) VALUES ('Introduction to Machine Learning', 'Software', 1);
+INSERT INTO Books(Title, Category, AuthorId) VALUES ('Introduction to Computing', 'Software', 1);
+INSERT INTO Books(Title, Category, AuthorId) VALUES ('Calculus I', 'Math', 2);
+INSERT INTO Books(Title, Category, AuthorId) VALUES ('Calculus II', 'Math', 2);
+INSERT INTO Books(Title, Category, AuthorId) VALUES ('Trigonometry Basics', 'Math', 2);
+INSERT INTO Books(Title, Category, AuthorId) VALUES ('Rich Dad, Poor Dad', 'Economics', 3);
+
+
+------------------------------------- 
+
+Select * From Authors;
+Select * From Books;
