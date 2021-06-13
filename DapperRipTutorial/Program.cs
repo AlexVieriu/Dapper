@@ -1,4 +1,5 @@
-﻿using DapperRipTutorial.LearnTutorial;
+﻿using DapperRipTutorial._02_BasicQuerying;
+using DapperRipTutorial.LearnTutorial;
 using System;
 
 namespace DapperRipTutorial
@@ -7,19 +8,56 @@ namespace DapperRipTutorial
     {
         static void Main(string[] args)
         {
-            // 1. Learn Operations
-
             var sql = "Server=(local); Database=Dapper; Trusted_Connection = True;";
 
-            var asyncOperations = new AsyncOperations(sql);
-            asyncOperations.GetAllAuthorAsync();
-            asyncOperations.InsertSingleAuthorAsync();
-            
+            #region Learn Tutorial          
 
+            //var asyncOperations = new AsyncOperations(sql);
+            //asyncOperations.GetAllAuthorAsync();            // QueryAsync
+            //asyncOperations.InsertSingleAuthorAsync();      // ExecuteAsync
 
+            //var deleteData = new DeleteData(sql);
+            //deleteData.DeleteSingleAuthor();                // Execute - single Obj
+            //deleteData.DeleteMultipleAuthors();             // Execute - array of Obj
 
-            var mapColNameswithClassProp = new MapColNames_with_ClassProp(sql);
-            mapColNameswithClassProp.GetAuthors();
+            //var dynamicObjects = new DynamicObjects(sql);
+            //dynamicObjects.GetAuthors();                    // Query
+            //dynamicObjects.GetDynamicAuthors();             // Query
+
+            //var dynamicParameters = new DynamicParameters_(sql);
+            //dynamicParameters.GetAuthorBooks();                     // QueryMultiple
+            //dynamicParameters.GetAuthorBooks_DynamicParams();       // QueryMultiple
+            //dynamicParameters.InsertSingleAuthor_DynamicParam();    // Execute
+
+            //var inOperator = new IN_Operator(sql);
+            //inOperator.GetAuthors();                                // Query
+
+            //var mapColNameswithClassProp = new MapColNames_with_ClassProp(sql);
+            //mapColNameswithClassProp.GetAuthors();                  // Query
+
+            //var multiMapping = new MultiMapping(sql);               
+            //multiMapping.GetAuthorBooks();                          // Query  
+
+            //var updateData = new UpdateData(sql);
+            //updateData.UpdateAuthor();
+            //updateData.UpdateAuthors();
+
+            #endregion
+
+            #region Basic Querying
+
+            //var basicQuerying = new BasicQuerying(sql);
+            //basicQuerying.QueryForDynamicTypes();
+            //basicQuerying.QueryForStaticType();
+            //basicQuerying.QueryWithDynamicParams();
+
+            #endregion
+
+            #region Bulk Insert
+
+            #endregion
+
+            Console.ReadLine();
         }
     }
 }

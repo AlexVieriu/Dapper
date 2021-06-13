@@ -15,6 +15,8 @@ namespace DapperRipTutorial.LearnTutorial
             _connectionString = connectionString;
         }
 
+        // If the class property Name doesn't match the DB column name, the record will display
+        // 
         public void GetAuthors()
         {
             var sql = "Select * from Authors";

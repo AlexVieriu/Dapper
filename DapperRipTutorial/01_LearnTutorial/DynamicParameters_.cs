@@ -4,12 +4,16 @@ using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Threading;
 
 namespace DapperRipTutorial.LearnTutorial
 {
     public class DynamicParameters_
-    {        
+    {
+        /*
+         * The dynamic parameters allow you to specify parameters when you 
+         * need to send parameters into a stored procedure or an SQL Statment
+         */
+
         private readonly string _connectionString;
 
         public DynamicParameters_(string connectionString)

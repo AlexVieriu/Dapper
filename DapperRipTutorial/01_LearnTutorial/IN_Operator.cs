@@ -7,11 +7,11 @@ using System.Linq;
 
 namespace DapperRipTutorial.LearnTutorial
 {
-    public class IN_OperatorSupport
+    public class IN_Operator
     {
         private readonly string _connectionString;
 
-        public IN_OperatorSupport(string connectionString)
+        public IN_Operator(string connectionString)
         {
             _connectionString = connectionString;
         }

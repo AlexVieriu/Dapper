@@ -10,6 +10,10 @@ namespace DapperRipTutorial.LearnTutorial
 {
     public class DynamicObjects
     {
+        /*
+         * Dynamic objects were added in C# 4 and are useful in many 
+         * dynamic scenarios when dealing with JSON objects
+         */
         private readonly string _connectionString;
 
         public DynamicObjects(string connectionString)

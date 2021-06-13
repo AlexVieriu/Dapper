@@ -20,7 +20,7 @@ namespace DapperRipTutorial.LearnTutorial
 
             using (IDbConnection connection = new SqlConnection(_connectionString))
             {
-                var rowsAffected = connection.Execute(sql, new { Id = 4 });
+                var rowsAffected = connection.Execute(sql, new { Id = 6 });
 
                 Console.WriteLine($"RowsAffected - {rowsAffected}");                
             }
@@ -39,6 +39,8 @@ namespace DapperRipTutorial.LearnTutorial
                                 new{ Id = 6},
                                 new{ Id = 7},
                             });
+                
+                Console.WriteLine($"RowsAffected - {rowsAffected}");
             }
         }
     }
