@@ -8,5 +8,6 @@ namespace DapperRipTutorial.Models
         public string SupplierName { get; set; }
         public string ContactName { get; set; }
         public Product Product { get; set; }
+        public List<Product> Products { get; set; }
     }
 }

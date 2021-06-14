@@ -7,7 +7,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using Z.Dapper.Plus;
 
-namespace DapperRipTutorial.BulkInsert
+namespace DapperRipTutorial.Bulk_Insert_Update_Delete_Merge
 {
     public class BulkInsert_CodeFormatat
     {
@@ -67,6 +67,72 @@ namespace DapperRipTutorial.BulkInsert
 
             DapperPlusManager.Entity<Supplier>().Table("Suppliers").Identity(x => x.SupplierID);
             DapperPlusManager.Entity<Product>().Table("Products").Identity(x => x.ProductID);
+
+            using (_connection)
+            {
+                _connection.BulkInsert(suppliers)
+                    .ThenForEach(x => x.Product.SupplierID = x.SupplierID)
+                    .ThenBulkInsert(x => x.Product);
+            }
+        }
+
+        public void InsertOneToMany()
+        {
+            // Example 1:
+            // get the data
+            var suppliers = new List<Supplier>()
+            {
+                new Supplier()
+                {
+                    SupplierName = "ExampleSupplierBulkInsert",
+                    Products = new List<Product>
+                    {
+                        new Product() {ProductName = "ExampleProductBulkInsert", Unit = "1"},
+                        new Product() {ProductName = "ExampleProductBulkInsert", Unit = "2"} ,
+                        new Product() {ProductName = "ExampleProductBulkInsert", Unit = "3"}
+                    }
+                }
+            };
+
+            // map the Class with the Table
+            DapperPlusManager.Entity<Supplier>().Table("Suppliers").Identity(x => x.SupplierID);
+            DapperPlusManager.Entity<Product>().Table("Products").Identity(x => x.ProductID);
+
+            using (_connection)
+            {
+                _connection.BulkInsert(suppliers)
+                    .ThenForEach(x => x.Products.ForEach(y => y.SupplierID = x.SupplierID))
+                    .ThenBulkInsert(x => x.Products);
+            }
+
+
+            // Exemple 2 -- very hard to understand
+            suppliers = null;
+
+            using (_connection)
+            {
+                var supplierDictionary = new Dictionary<int, Supplier>();
+                var sql = @"Select A.SupplierID, A.SupplierName, B.ProductID, B.ProductName 
+                            FROM Suppliers as A 
+                            inner join Products as B on B.SupplierID =A.SupplierID 
+                            where A.SupplierName = 'ExampleSupplierBulkInsert'";
+
+                suppliers = _connection.Query<Supplier, Product, Supplier>(sql,
+                (supplier, product) =>
+                {
+                    Supplier supplierEntry;
+
+                    if (!supplierDictionary.TryGetValue(supplier.SupplierID, out supplierEntry))
+                    {
+                        supplierEntry = supplier;
+                        supplierEntry.Products = new List<Product>();
+                        supplierDictionary.Add(supplier.SupplierID, supplierEntry);
+                    }
+
+                    supplierEntry.Products.Add(product);
+                    return supplierEntry;
+                }, splitOn: "ProductID").Distinct().ToList();
+            }
         }
 
         private void ReadCustomers()
