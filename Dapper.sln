@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31320.298
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31423.177
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DapperRipTutorial", "DapperRipTutorial\DapperRipTutorial.csproj", "{8E954905-4170-4E6E-B0B1-4D565E9887F4}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DapperTutorial", "DapperTutorial\DapperTutorial.csproj", "{867ECE14-E059-4AFC-B644-C5F740AEC66A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LearnDapper", "LearnDapper\LearnDapper.csproj", "{023BB93F-B2C4-4603-B2C2-C68A1822A9B5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{867ECE14-E059-4AFC-B644-C5F740AEC66A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{867ECE14-E059-4AFC-B644-C5F740AEC66A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{867ECE14-E059-4AFC-B644-C5F740AEC66A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{023BB93F-B2C4-4603-B2C2-C68A1822A9B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{023BB93F-B2C4-4603-B2C2-C68A1822A9B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{023BB93F-B2C4-4603-B2C2-C68A1822A9B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{023BB93F-B2C4-4603-B2C2-C68A1822A9B5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

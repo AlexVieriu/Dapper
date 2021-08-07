@@ -9,8 +9,8 @@ namespace DapperRipTutorial
     {
         static void Main(string[] args)
         {
-            //var sql = "Server=(local); Database=Dapper; Trusted_Connection = True;";
-            var sql = "Server=apptestsrv; Database=AlexDapper; Trusted_Connection = True;";
+            var sql = "Server=(local); Database=Dapper; Trusted_Connection = True;";
+            //var sql = "Server=apptestsrv; Database=AlexDapper; Trusted_Connection = True;";
 
             #region Learn Tutorial          
 
@@ -69,6 +69,10 @@ namespace DapperRipTutorial
             #endregion
 
             #region Bulk Delete
+
+            #endregion
+
+            #region Dynamic Parameters
 
             #endregion
 
