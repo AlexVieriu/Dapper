@@ -7,7 +7,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DapperRipTutorial", "Dapper
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DapperTutorial", "DapperTutorial\DapperTutorial.csproj", "{867ECE14-E059-4AFC-B644-C5F740AEC66A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LearnDapper", "LearnDapper\LearnDapper.csproj", "{023BB93F-B2C4-4603-B2C2-C68A1822A9B5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LearnDapper", "LearnDapper\LearnDapper.csproj", "{023BB93F-B2C4-4603-B2C2-C68A1822A9B5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{256E9D41-EF5D-45D4-B6BB-1138D0444DE5}"
+	ProjectSection(SolutionItems) = preProject
+		Links.txt = Links.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

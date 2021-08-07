@@ -1,0 +1,3 @@
+DapperTutorial		: https://dapper-tutorial.net/dapper
+DapperRipTutorial	: https://riptutorial.com/dapper
+LearnDapper			: https://www.learndapper.com/
