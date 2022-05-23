@@ -1,7 +1,4 @@
-﻿using DapperRipTutorial._02_BasicQuerying;
-using DapperRipTutorial.Bulk_Insert_Update_Delete_Merge;
-using DapperRipTutorial.LearnTutorial;
-using System;
+﻿using DapperRipTutorial.Bulk_Insert_Update_Delete_Merge;
 
 namespace DapperRipTutorial
 {
